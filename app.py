@@ -81,7 +81,7 @@ with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     min_users = st.number_input(
         "Minimum unique UserIDs required per portfolio",
-        min_value=1, max_value=50, value=4,
+        min_value=1, max_value=50, value=1,
         help="Portfolios with fewer unique users will be excluded."
     )
     gridlog_file = st.file_uploader("Upload GridLog (CSV/XLSX)", type=["csv", "xlsx"])
@@ -355,3 +355,4 @@ if run:
         st.write(f"- Portfolios after UserID filter: {df_grid['Option Portfolio'].nunique() if 'Option Portfolio' in df_grid.columns else 0:,}")
         st.write(f"- Fully completed portfolios detected: {len(fully_completed_portfolios):,}")
         st.write(f"- Final results: {len(final_df):,}")
+
